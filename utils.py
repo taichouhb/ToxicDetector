@@ -24,10 +24,17 @@ def feats(input):
 
 """
 Some thoughts on the features that we will implment:
-1. counts of sexual genitals in the comment
-2. volient words
-3. family
-4. negative adj
-5. negative cyber slangs
+1. # sexual organs
+2. # volient words
+3. # family words
+4. # negative adj
+5. # negative cyber slangs
+6. # caps
+7. # swears  -- close "fucky"
+8. # "!"
+9. # complimentart words
+10. # simple emoji :) 
+11. # xD, :D
+12. # \\n
 
 """
