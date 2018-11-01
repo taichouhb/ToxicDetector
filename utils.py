@@ -21,3 +21,13 @@ def feats(input):
     #output returns in N x D, N (labels, N of them)
     #Perhaps preprocess the labels here so they are binary class, instead of 10 classes
     return None, None
+
+"""
+Some thoughts on the features that we will implment:
+1. counts of sexual genitals in the comment
+2. volient words
+3. family
+4. negative adj
+5. negative cyber slangs
+
+"""
