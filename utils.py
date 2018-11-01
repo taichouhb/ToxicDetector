@@ -15,7 +15,18 @@ def featurize(input):
 
 def feats(input):
     #Parse input into features of length D.
-    
+    #Pandas DF N x 3 
+    globalTable = {}
+    for n, row in input.iterrows():
+        idd, comment, index = row
+        #Tokenize comment
+        newSet = ',.!?\"'
+        exclamation = comment.count("!")
+        table =  str.maketrans({key:None for key in newSet})
+        translated = comment.translate(table)
+        tokens = translated.split(" ")
+        
+        
     
     
     #output returns in N x D, N (labels, N of them)
