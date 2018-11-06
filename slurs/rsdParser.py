@@ -15,7 +15,11 @@ page = urlopen(req).read()
 #print(html_doc)
 soup = BeautifulSoup(page)
 #print(soup)
-pdb.set_trace()
+full = []
 #print(soup.findAll('table')[0])
 for row in soup.find('table').findAll('tr')[1:-1]:
-	print(row.find('td').string)
+	try:
+		full.append(row.find('td').string.lower())
+	except:
+		continue
+print(', '.join(full))
