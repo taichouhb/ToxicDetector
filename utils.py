@@ -1,3 +1,6 @@
+import pdb
+from collections import defaultdict
+
 def featurize(input):
     #Takes in Nx (2) array of tuples. 
     
@@ -16,7 +19,8 @@ def featurize(input):
 def feats(input):
     #Parse input into features of length D.
     #Pandas DF N x 3 
-    globalTable = {}
+    globalTable = parseGlobal()
+    pdb.set_trace()
     for n, row in input.iterrows():
         idd, comment, index = row
         #Tokenize comment
@@ -26,12 +30,27 @@ def feats(input):
         translated = comment.translate(table)
         tokens = translated.split(" ")
         
-        
-    
     
     #output returns in N x D, N (labels, N of them)
     #Perhaps preprocess the labels here so they are binary class, instead of 10 classes
     return None, None
+
+def parseGlobal():
+    directory = 'slurs/'
+    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14)]
+    #Index Values [7, 13, 14]
+    wordToFeature = defaultdict() #Word -> [Index X]
+    counter = 1
+    for f,idx in fileNames:
+        words = open(directory+f, 'r').read()
+        words = words.split(', ')
+        for w in words:
+            if w not in wordToFeature:
+                wordToFeature[w] = set()
+            wordToFeature[w].add(idx)
+    return wordToFeature
+
+
 
 """
 Some thoughts on the features that we will implment:
@@ -47,5 +66,7 @@ Some thoughts on the features that we will implment:
 10. # simple emoji :) 
 11. # xD, :D
 12. # \\n
+13. Disability
+14. Racial Slurs DB
 
 """
