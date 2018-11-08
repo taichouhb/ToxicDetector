@@ -51,7 +51,7 @@ def feats(input):
 
 def parseGlobal():
     directory = 'slurs/'
-    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethicsSlurs,', 15)]
+    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethicsSlurs,', 15),('archaic.csv',16),('class.csv',17),('disability2.csv',13),('ethnicity.csv',15),('gender.csv',18),('LGBT.csv',18),('sexual orientation.csv',18),('religion.csv',19),('nationality.csv',20)]
     #Index Values [7, 13, 14, 15]
     wordToFeature = defaultdict() #Word -> [Index X]
     counter = 1
@@ -79,8 +79,12 @@ Some thoughts on the features that we will implment:
 10. # simple emoji :) 
 11. # xD, :D
 12. # \\n
-13. Disability
+13. Disability -hatebase + wiki
 14. Racial Slurs DB
-15. Ethics Slurs (WIKI)
-
+15. Ethics Slurs (WIKI) + hatebase
+16. archaic -hatebase
+17. class -hatebase
+18. gender/LGBT/sexual orientation - hatebase and wiki
+19. religion -hatebase
+20. nationality
 """
