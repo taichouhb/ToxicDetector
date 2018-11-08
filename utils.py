@@ -51,8 +51,8 @@ def feats(input):
 
 def parseGlobal():
     directory = 'slurs/'
-    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14)]
-    #Index Values [7, 13, 14]
+    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethicsSlurs,', 15)]
+    #Index Values [7, 13, 14, 15]
     wordToFeature = defaultdict() #Word -> [Index X]
     counter = 1
     for f,idx in fileNames:
@@ -81,5 +81,6 @@ Some thoughts on the features that we will implment:
 12. # \\n
 13. Disability
 14. Racial Slurs DB
+15. Ethics Slurs (WIKI)
 
 """
