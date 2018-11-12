@@ -51,7 +51,7 @@ def feats(input):
 
 def parseGlobal():
     directory = 'slurs/'
-    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethicsSlurs,', 15),('archaic.csv',16),('class.csv',17),('disability2.csv',13),('ethnicity.csv',15),('gender.csv',18),('LGBT.csv',18),('sexual orientation.csv',18),('religion.csv',19),('nationality.csv',20)]
+    fileNames = [('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethicsSlurs.csv', 15),('archaic.csv',16),('class.csv',17),('disability2.csv',13),('ethnicity.csv',15),('gender.csv',18),('LGBT.csv',18),('sexual orientation.csv',18),('religion.csv',19),('nationality.csv',20)]
     #Index Values [7, 13, 14, 15]
     wordToFeature = defaultdict() #Word -> [Index X]
     counter = 1
