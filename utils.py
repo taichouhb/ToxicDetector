@@ -36,23 +36,47 @@ def feats(input):
         exclamation = comment.count("!")
         table =  str.maketrans({key:None for key in newSet})
         translated = comment.lower().translate(table)
-        tokens = translated.split(" ")
+        
+        tokens = multipleWords(1, translated) # every 1 word
         for t in tokens: 
             if t in globalTable:
                 for ind in globalTable[t]:
-                    featureVector[ind] += 1 
+                    featureVector[ind] += 1
         featureMatrix.append(featureVector)
+
+        doubleTokens = multipleWords(2, translated) # every 2 words
+        for t in doubleTokens: 
+            if t in globalTable:
+                for ind in globalTable[t]:
+                    featureVector[ind] += 1
+        featureMatrix.append(featureVector)
+        
+        tripleTokens = multipleWords(3, translated) # every 3 words
+        for t in tripleTokens: 
+            if t in globalTable:
+                for ind in globalTable[t]:
+                    featureVector[ind] += 1
+        featureMatrix.append(featureVector)
+
         labels.append(label)
+
         
     featureMatrix = np.array(featureMatrix)
     labels = np.array(labels)
     return featureMatrix, labels
+
+def multipleWords(span, input):
+    token = input.split(" ")
+    if (span > 1):
+        token = [' '.join(token[i:i+span]) for i in range(0,len(token),span)]
+    return token
+    
         
 
 def parseGlobal():
     directory = 'slurs/'
-    fileNames = [('sexual.csv', 1), ('negAdj.csv', 4), ('noswear.csv',7), ('emoticon.csv', 10), ('disability.csv',13), ('rsd.txt',14), ('ethnicity.csv', 15),('archaic.csv',16),('class.csv',17),('gender.csv',18),('religion.csv',19),('nationality.csv',20)]
-    #Index Values [1, 4, 7, 10, 13, 14, 15, 16, 17, 18, 19, 20]
+    fileNames = [('sexual.csv', 1), ('negAdj.csv', 4), ('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethnicity.csv', 15),('archaic.csv',16),('class.csv',17),('gender.csv',18),('religion.csv',19),('nationality.csv',20)]
+    #Index Values [1, 4, 7, 13, 14, 15, 16, 17, 18, 19, 20]
     wordToFeature = defaultdict() #Word -> [Index X]
     counter = 1
     for f,idx in fileNames:
