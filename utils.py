@@ -4,11 +4,11 @@ import numpy as np
 
 
 
-def featurize(input):
+def featurize(input, stage='train'):
     #Takes in Nx (2) array of tuples. 
     
     # Parse input sentence into D features for each sentence  
-    x, y = feats(input)
+    x, y = feats(input, stage)
     
     
     #Perhaps need to take mini-batches, or we can train on the whole thing
@@ -19,7 +19,7 @@ def featurize(input):
     #data_train being largest, probably  
     return x, y
 
-def feats(input):
+def feats(input, stage='train'):
     #Parse input into features of length D.
     #Pandas DF N x 3 
     globalTable, totalFeatures = parseGlobal()
@@ -29,7 +29,8 @@ def feats(input):
     for ind, row in input.iterrows():
         featureVector = np.array([0]*totalFeatures)
         idd, comment = row['id'], row['comment_text']
-        label = [row['toxic'], row['severe_toxic'], row['obscene'], \
+        if stage == 'train':
+            label = [row['toxic'], row['severe_toxic'], row['obscene'], \
                  row['threat'], row['insult'], row['identity_hate']]
         #Tokenize comment
         newSet = ',.!?\"'
@@ -62,7 +63,10 @@ def feats(input):
 
         
     featureMatrix = np.array(featureMatrix)
-    labels = np.array(labels)
+    if stage=='train':
+        labels = np.array(labels)
+    else: 
+        labels = None
     return featureMatrix, labels
 
 def multipleWords(span, input):
