@@ -43,7 +43,9 @@ def feats(input, stage='train'):
                 for ind in globalTable[t]:
                     featureVector[ind] += 1 
         featureMatrix.append(featureVector)
-        labels.append(label)
+        if stage == 'train':
+            labels.append(label)
+       
         
     featureMatrix = np.array(featureMatrix)
     if stage=='train':
