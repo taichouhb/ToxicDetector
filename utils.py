@@ -43,20 +43,21 @@ def feats(input, stage='train'):
             if t in globalTable:
                 for ind in globalTable[t]:
                     featureVector[ind] += 1
-        featureMatrix.append(featureVector)
+        
 
         doubleTokens = multipleWords(2, translated) # every 2 words
         for t in doubleTokens: 
             if t in globalTable:
                 for ind in globalTable[t]:
                     featureVector[ind] += 1
-        featureMatrix.append(featureVector)
+        
         
         tripleTokens = multipleWords(3, translated) # every 3 words
         for t in tripleTokens: 
             if t in globalTable:
                 for ind in globalTable[t]:
                     featureVector[ind] += 1
+        
         featureMatrix.append(featureVector)
 
         labels.append(label)
