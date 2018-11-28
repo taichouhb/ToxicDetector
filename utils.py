@@ -59,8 +59,8 @@ def feats(input, stage='train'):
                     featureVector[ind] += 1
         
         featureMatrix.append(featureVector)
-
-        labels.append(label)
+        if stage=='train':
+            labels.append(label)
 
         
     featureMatrix = np.array(featureMatrix)
