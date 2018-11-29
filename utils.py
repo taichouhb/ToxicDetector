@@ -80,8 +80,8 @@ def multipleWords(span, input):
 
 def parseGlobal():
     directory = 'slurs/'
-    fileNames = [('sexual.csv', 1), ('negAdj.csv', 4), ('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethnicity.csv', 15),('archaic.csv',16),('class.csv',17),('gender.csv',18),('religion.csv',19),('nationality.csv',20)]
-    #Index Values [1, 4, 7, 13, 14, 15, 16, 17, 18, 19, 20]
+    fileNames = [('sexual.csv', 1), ('agressive.csv',2), ('family.csv', 3), ('negAdj.csv', 4), ('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethnicity.csv', 15),('archaic.csv',16),('class.csv',17),('gender.csv',18),('religion.csv',19),('nationality.csv',20)]
+    #Index Values [1, 3, 4, 7, 13, 14, 15, 16, 17, 18, 19, 20]
     wordToFeature = defaultdict() #Word -> [Index X]
     counter = 1
     for f,idx in fileNames:
@@ -96,24 +96,24 @@ def parseGlobal():
 
 """
 Some thoughts on the features that we will implment:
-1. # sexual organs
-2. # volient words
-3. # family words
-4. # negative adj
+1. # sexual organs (Done)
+2. # violent words (Done)
+3. # family words (Done)
+4. # negative adj (Done)
 5. # negative cyber slangs
-6. # caps
-7. # swears  -- close "fucky"
-8. # "!"
-9. # complimentart words
-10. # simple emoji :) 
-11. # xD, :D
-12. # \\n
-13. Disability -hatebase + wiki
-14. Racial Slurs DB
-15. Ethics Slurs (WIKI) + hatebase
-16. archaic -hatebase
-17. class -hatebase
-18. gender- hatebase and wiki
-19. religion -hatebase
-20. nationality
+6. # caps (Maybe)
+7. # swears  -- close "fucky" (Done)
+8. # "!" (Have the counts)
+9. # complimentary words
+10. # simple emoji :) (NOT USING IT)
+11. # xD, :D (NOT USING IT)
+12. # \\n (Maybe)
+13. Disability -hatebase + wiki (Done)
+14. Racial Slurs DB (Done)
+15. Ethics Slurs (WIKI) + hatebase (Done)
+16. archaic -hatebase (Done)
+17. class -hatebase (Done)
+18. gender- hatebase and wiki (Done)
+19. religion -hatebase (Done)
+20. nationality (Done)
 """
