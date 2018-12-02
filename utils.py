@@ -35,6 +35,10 @@ def feats(input, stage='train'):
         #Tokenize comment
         newSet = ',.!?\"'
         exclamation = comment.count("!")
+        featureVector[8] = exclamation
+        featureVector[6] = sum(1 for c in comment if c.isupper())
+        featureVector[12] = comment.count("\n")
+        featureVector[10] = comment.count(",")
         table =  str.maketrans({key:None for key in newSet})
         translated = comment.lower().translate(table)
         
@@ -58,10 +62,12 @@ def feats(input, stage='train'):
                 for ind in globalTable[t]:
                     featureVector[ind] += 1
         
+        featureVector = featureVector / len(comment.split(" "))
+        
         featureMatrix.append(featureVector)
         if stage=='train':
             labels.append(label)
-
+        
         
     featureMatrix = np.array(featureMatrix)
     if stage=='train':
@@ -100,14 +106,13 @@ Some thoughts on the features that we will implment:
 2. # violent words (Done)
 3. # family words (Done)
 4. # negative adj (Done)
-5. # negative cyber slangs
-6. # caps (Maybe)
+6. # caps (Done)
 7. # swears  -- close "fucky" (Done)
 8. # "!" (Have the counts)
-9. # complimentary words
-10. # simple emoji :) (NOT USING IT)
+9. # complimentary words 
+10. # Commas: ","
 11. # xD, :D (NOT USING IT)
-12. # \\n (Maybe)
+12. # \\n (Done)
 13. Disability -hatebase + wiki (Done)
 14. Racial Slurs DB (Done)
 15. Ethics Slurs (WIKI) + hatebase (Done)
