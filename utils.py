@@ -81,7 +81,7 @@ def multipleWords(span, input):
 def parseGlobal():
     directory = 'slurs/'
     fileNames = [('sexual.csv', 1), ('agressive.csv',2), ('family.csv', 3), ('negAdj.csv', 4), ('noswear.csv',7), ('disability.csv',13), ('rsd.txt',14), ('ethnicity.csv', 15),('archaic.csv',16),('class.csv',17),('gender.csv',18),('religion.csv',19),('nationality.csv',20)]
-    #Index Values [1, 3, 4, 7, 13, 14, 15, 16, 17, 18, 19, 20]
+    #Index Values [1, 2, 3, 4, 7, 13, 14, 15, 16, 17, 18, 19, 20]
     wordToFeature = defaultdict() #Word -> [Index X]
     counter = 1
     for f,idx in fileNames:
