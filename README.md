@@ -24,6 +24,18 @@ Contains the code that is used to parse the input pandas dataframe into the feat
 - Output best model's test prediction to file 
 
 ## OtherClassifiers.ipynb 
+- Reads train/test .csv file into pandas dataframe
+- Uses utils.py to get feature vector transformation
+- Defines Decision Tree, Random Forest, 6 Logistic Regression (1 per label) and 6 Support Vector Machine (1 per label) with default hyperparameter
+- Trains all classifiers over 5 fold cross validation
+- Output the best accuracy of each classifer's test predction to file
+- Obtains results from Kaggle and Compare each classifier
+- Gridsearch for best hyperparameter for Random Forest after compared all classifier results
+- Splits the train set with a 70/30, 70 as training set, 30 as testing set
+- Defines Decision Tree, Random Forest (best hyperparameter), 6 Logistic Regression (1 per label) and 6 Support Vector Machine (1 per label) with default hyperparameter
+- Trains all classifiers over the 70% train set
+- Tests all classifiers over the 30% test set
+- Obtains each label accuracy for all classifiers and compare
 
 ## Word Embedding.ipynb
 - Reads in csv into dataframe
